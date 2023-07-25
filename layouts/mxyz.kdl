@@ -1,0 +1,19 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab split_direction="Vertical" {
+        pane size="40%" name="nVim" command="$EDITOR" 
+        pane size="40%" name="shell"
+        pane size="20%" name="log" split_direction="Horizontal" {
+            pane name="log-1"
+            pane name="log-2"
+        }
+    }
+}
