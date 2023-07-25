@@ -1,4 +1,8 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
+
+// Keybinds {{{
+// ════════════════════════════════════════════════════════════════════════════
+
 keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
@@ -136,12 +140,13 @@ keybinds {
     }
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
+        unbind "Ctrl q"
+        bind "Ctrl x" { Quit; }
         bind "Alt n" { NewPane; }
-        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
-        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
-        bind "Alt j" "Alt Down" { MoveFocus "Down"; }
-        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+        bind "Ctrl h" "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Ctrl l" "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Ctrl j" "Alt j" "Alt Down" { MoveFocus "Down"; }
+        bind "Ctrl k" "Alt j" "Alt Up" { MoveFocus "Up"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
@@ -165,13 +170,16 @@ keybinds {
     shared_except "tab" "locked" {
         bind "Ctrl t" { SwitchToMode "Tab"; }
     }
-    shared_except "move" "locked" {
-        bind "Ctrl h" { SwitchToMode "Move"; }
-    }
+    // shared_except "move" "locked" {
+    //     bind "Ctrl h" { SwitchToMode "Move"; }
+    // }
     shared_except "tmux" "locked" {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
     }
 }
+
+// }}}
+// Plugins {{{
 
 plugins {
     tab-bar { path "tab-bar"; }
@@ -179,6 +187,9 @@ plugins {
     strider { path "strider"; }
     compact-bar { path "compact-bar"; }
 }
+
+// }}}
+// Various {{{
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
 // eg. when terminal window with an active zellij session is closed
@@ -218,35 +229,31 @@ plugins {
 //
 // auto_layout true
 
+// }}}
+// Themes {{{
+// ════════════════════════════════════════════════════════════════════════════
+
 // Define color themes for Zellij
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
-// themes {
-//     dracula {
-//         fg 248 248 242
-//         bg 40 42 54
-//         red 255 85 85
-//         green 80 250 123
-//         yellow 241 250 140
-//         blue 98 114 164
-//         magenta 255 121 198
-//         orange 255 184 108
-//         cyan 139 233 253
-//         black 0 0 0
-//         white 255 255 255
-//     }
-// }
-
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "default"
+theme "solarized"
+
+// }}}
+// Layouts {{{
+// ════════════════════════════════════════════════════════════════════════════
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
 // default_layout "compact"
+
+// }}}
+// Various {{{
+// ════════════════════════════════════════════════════════════════════════════
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -278,7 +285,7 @@ plugins {
 //
 // copy_command "xclip -selection clipboard" // x11
 // copy_command "wl-copy"                    // wayland
-// copy_command "pbcopy"                     // osx
+copy_command "pbcopy"                     // osx
 
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
@@ -292,7 +299,7 @@ plugins {
 // Enable or disable automatic copy (and clear) of selection when releasing mouse
 // Default: true
 //
-// copy_on_select false
+copy_on_select true
 
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
@@ -313,3 +320,15 @@ plugins {
 // The folder in which Zellij will look for themes
 //
 // theme_dir "/path/to/my/theme_dir"
+
+// }}}
+// UI {{{
+
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+
+
+// }}}
