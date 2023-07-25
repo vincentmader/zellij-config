@@ -1,0 +1,19 @@
+// This file shows how to write a theme file
+// using `gruvbox` theme.
+
+themes {
+ 	// example of how to set a theme in HEX format
+    solarized {
+        fg "#c7c7c7"
+        bg "#000000"
+        black "#000000"
+        red "#dc322f"
+        green "#859900"
+        yellow "#b58900"
+        blue "#268bd2"
+        magenta "#d33682"
+        cyan "#2aa198"
+        white "#eee8d5"
+        orange "#cb4b16"
+    }
+}
