@@ -265,7 +265,7 @@ plugins {
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
-// themes {
+ themes {
 //     dracula {
 //         fg 248 248 242
 //         bg 40 42 54
@@ -279,7 +279,20 @@ plugins {
 //         black 0 0 0
 //         white 255 255 255
 //     }
-// }
+    solarized {
+        fg "#c7c7c7"
+        bg "#000000"
+        black "#000000"
+        red "#dc322f"
+        green "#859900"
+        yellow "#b58900"
+        blue "#268bd2"
+        magenta "#d33682"
+        cyan "#2aa198"
+        white "#eee8d5"
+        orange "#cb4b16"
+    }
+ }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
